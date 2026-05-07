@@ -960,6 +960,7 @@
 
   window.addEventListener('keydown', handleInput);
   canvas.addEventListener('click', handleClick);
+  window.addEventListener('touchstart', handleTouch, { passive: false });
   canvas.addEventListener('touchstart', handleTouch, { passive: false });
   canvas.addEventListener('contextmenu', handleRightClick);
   soundToggle.addEventListener('click', toggleSound);
