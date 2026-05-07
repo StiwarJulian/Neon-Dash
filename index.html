@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Neon Dash</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="game-canvas"></canvas>
+    
+    <div id="ui-layer">
+      <button id="sound-toggle" aria-label="Toggle Sound">🔊</button>
+      <div id="score-display">0</div>
+      <div id="best-display">BEST: 0</div>
+    </div>
+
+    <div id="instructions-screen" class="screen">
+      <h1>NEON DASH</h1>
+      <p class="subtitle">One button. Endless neon.</p>
+      <div class="controls">
+        <div class="control-item">
+          <span class="key">SPACE</span> or <span class="key">CLICK</span>
+          <span class="action">JUMP</span>
+        </div>
+        <div class="control-item">
+          <span class="key">SHIFT</span> or <span class="key">RIGHT-CLICK</span>
+          <span class="action">DASH</span>
+        </div>
+      </div>
+      <p class="hint">Dash makes you invincible! Double jump available in air.</p>
+      <p class="start-prompt">Press any key to start</p>
+    </div>
+
+    <div id="gameover-screen" class="screen hidden">
+      <h1>GAME OVER</h1>
+      <div class="final-score">
+        <span class="label">SCORE</span>
+        <span class="value" id="final-score-value">0</span>
+      </div>
+      <div class="final-best">
+        <span class="label">BEST</span>
+        <span class="value" id="final-best-value">0</span>
+      </div>
+      <p class="new-best hidden" id="new-best-text">NEW BEST!</p>
+      <p class="restart-prompt">Press any key to restart</p>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
