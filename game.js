@@ -905,6 +905,8 @@
     }
   }
 
+  let lastTapTime = 0;
+
   function handleClick(e) {
     if (e.target === soundToggle) return;
     
@@ -919,6 +921,25 @@
     }
     
     jump();
+  }
+
+  function handleTouch(e) {
+    e.preventDefault();
+    const now = Date.now();
+    const timeSinceLastTap = now - lastTapTime;
+    
+    if (gameState === 'instructions' || gameState === 'gameover') {
+      startGame();
+      lastTapTime = now;
+      return;
+    }
+    
+    if (timeSinceLastTap < 300) {
+      dash();
+    } else {
+      jump();
+    }
+    lastTapTime = now;
   }
 
   function handleRightClick(e) {
@@ -939,6 +960,7 @@
 
   window.addEventListener('keydown', handleInput);
   canvas.addEventListener('click', handleClick);
+  canvas.addEventListener('touchstart', handleTouch, { passive: false });
   canvas.addEventListener('contextmenu', handleRightClick);
   soundToggle.addEventListener('click', toggleSound);
   window.addEventListener('resize', resize);
